@@ -1,0 +1,1 @@
+(function(){'usestrict';functiontest(){alert('Thisisjustatribute')}})();
