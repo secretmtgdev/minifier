@@ -23,6 +23,11 @@ Idea:
             Extract content
             Minify content string 
             Replace content with minified string 
+
+@method crawl
+@description Walk through all of the contents of the current directory and minify the appropriate contents
+@param <dir: String> The current directory to traverse through 
+@return void 
 '''
 def crawl(dir):
     # Reference the global rgx variable 
@@ -32,6 +37,13 @@ def crawl(dir):
             if rgx.search(fname) is not None:
                 minifyFile(os.path.join(root, fname))
 
+
+'''
+@method minifyFile 
+@description Takes the contents of a file and removes all sorts of whitespaces from a file
+@param <fileRef: Path> The path of the file to modify with respect to the current directory.
+@return void
+'''
 def minifyFile(fileRef):
     content = ''
     # open the file up 
@@ -52,6 +64,6 @@ if __name__ == '__main__':
             path_found = True
 
     # switch to the directory that was specified
-    print "Changing directories"
+    print "Changing to directory {0}".format(path)
     os.chdir(path)
     crawl('.')
